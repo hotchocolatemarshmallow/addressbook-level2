@@ -1,0 +1,76 @@
+package seedu.addressbook.common;
+
+import org.junit.Before;
+import org.junit.Test;
+import seedu.addressbook.commands.*;
+import seedu.addressbook.data.exception.IllegalValueException;
+import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.data.person.*;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.junit.Assert.*;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
+
+public class ParserTest {
+
+    private Utils utils;
+
+    @Before
+    public void setup() {
+        utils = new Utils();
+    }
+
+    @Test
+    public void EmptyInput_returnsTrue() {
+        final String[] emptyInputs = { "", "  ", "\n  \n" };
+        final String resultMessage = String.format("string is null");
+        assertTrue(util.isAnyNull(emptyInputs));
+    }
+    @Test
+    public void elementsAreNotUniqueInput_returnsFalse() {
+        final String[] inputs = { "a", "a", "\n  \n" };
+        final String resultMessage = String.format("string is not unique");
+        assertFalse(util.elementsAreUnique(inputs));
+    }
+    
+    /**
+     * Utility methods
+     */
+
+    /**
+     * Asserts that parsing the given inputs will return IncorrectCommand with the given feedback message.
+     */
+    private void assertTrue(bool method){
+    	if ( method == true){
+    		System.out(" Pass ");
+    	}
+    	else {
+    		if ( method == false){
+    		System.out(" Fail ");
+    		}
+    	}
+    }
+    private void assertFalse(bool method){
+    	if ( method == false){
+    		System.out(" Pass ");
+    	}
+    	else {
+    		if ( method == True ){
+    		System.out(" Fail ");
+    		}
+    	}
+    }
+     
+    private void parseAndAssertIncorrectWithMessage(String feedbackMessage, String... inputs) {
+        for (String input : inputs) {
+            final IncorrectCommand result = parseAndAssertCommandType(input, IncorrectCommand.class);
+            assertEquals(result.feedbackToUser, feedbackMessage);
+        }
+    }
+
+ }
