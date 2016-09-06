@@ -31,7 +31,6 @@ public interface ReadOnlyPerson {
                 && other.getEmail().equals(this.getEmail())
                 && other.getAddress().equals(this.getAddress()));
     }
-
     /**
      * Formats the person as text, showing all contact details.
      */

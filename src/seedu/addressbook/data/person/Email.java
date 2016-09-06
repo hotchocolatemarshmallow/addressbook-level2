@@ -37,9 +37,8 @@ public class Email {
         return test.matches(EMAIL_VALIDATION_REGEX);
     }
 
-    @Override
-    public String toString() {
-        return value;
+    public String getPrintableString () {
+        return "Email: " + value;
     }
 
     @Override

@@ -35,9 +35,8 @@ public class Address {
         return test.matches(ADDRESS_VALIDATION_REGEX);
     }
 
-    @Override
-    public String toString() {
-        return value;
+    public String getPrintableString () {
+        return "Address: "+value;
     }
 
     @Override
